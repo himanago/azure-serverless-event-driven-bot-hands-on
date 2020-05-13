@@ -13,9 +13,9 @@ LINE Bot または Teams 送信 Webhook の 2 種類のインターフェース�
 - Azure Blob Storage
 
 ## もくじ
-- chapter 1: Cosmos DB アカウントの作成とコンテナーの追加
-- chapter 2: Cosmos トリガーで起動する関数アプリの作成とデプロイ
-- chapter 3: 出力バインディングによる SignalR Service への連携
-- chapter 4: Blob Storage への静的 Web サイトのホスト
-- chapter 5a: 静的 Web サイトをリアルタイム更新するクライアントツールの開発（LINE Bot）
-- chapter 5b: 静的 Web サイトをリアルタイム更新するクライアントツールの開発（Microsoft Teams の送信 Webhook）
+- chapter 1: [Cosmos DB アカウントの作成とコンテナーの追加](docs/chap1_cosmos_db.md)
+- chapter 2: [Cosmos トリガーで起動する関数アプリの作成とデプロイ](docs/chap2_function_app.md)
+- chapter 3: [出力バインディングによる SignalR Service への連携](docs/chap3_signalr_service.md)
+- chapter 4: [Blob Storage への静的 Web サイトのホスト](docs/chap4_blob_static_web.md)
+- chapter 5a: [静的 Web サイトをリアルタイム更新するクライアントツールの開発（LINE Bot）](docs/chap5a_line_bot.md)
+- chapter 5b: [静的 Web サイトをリアルタイム更新するクライアントツールの開発（Microsoft Teams の送信 Webhook）](docs/chap5b_teams_outgoing_webhook.md)
