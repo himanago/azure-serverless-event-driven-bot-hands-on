@@ -36,7 +36,7 @@ npm install crypto --save
       "name": "req",
       "methods": [
         "post"
-      ],
+      ]
     },
     {
       "type": "http",
@@ -70,18 +70,21 @@ module.exports = async function (context, req) {
     const msgBuf = Buffer.from(JSON.stringify(req.body), 'utf8');
     const msgHash = "HMAC " + crypto.createHmac('sha256', bufSecret).update(msgBuf).digest("base64");
 
-    // HMAC とヘッダーの Authorization が一致しない場合エラー
-    if (msgHash !== req.headers['Authorization']) {
-        console.error('認証に失敗しました。');
+    // HMAC とヘッダーの authorization が一致しない場合エラー
+    if (msgHash !== req.headers['authorization']) {
+        context.error('認証に失敗しました。');
         return;
     }
-    
+
+    // 「<at>タイムカード</at> メッセージ内容」という形式なのでメッセージのみ切り出す
+    const message = rawMessage.substr(rawMessage.indexOf('</at>') + '</at>'.length).replace('&nbsp;', ' ').trim();
+
     // 出力バインディング
     context.bindings.document = JSON.stringify({
         id: id,
         userId: from.id,
         name: from.name,
-        message: rawMessage
+        message: message
     });
 
     // 返信
@@ -121,17 +124,28 @@ Teams の、Webhook 機能を使いたいチームの「チームの管理」か
 
 ### 環境変数の追加
 
-コピーしたセキュリティトークンを Function App のアプリケーション設定に追加します（キー：`SHARED_SECRET`）。
+ポータルから Function App の「構成」を開き、「アプリケーション設定」にコピーしたセキュリティトークンを追加します（キー名は `SHARED_SECRET`）。
 
 
 以上で完成です。
 
 ## 動作確認
 
-「＠タイムカード」でメンションをつけます。
+Web 画面を開いた状態で、Teams から「＠タイムカード」でメンションします。
 
 ![送信Webhook](../images/05b-teams-webhook-05.png)
+
+「出勤」など勤怠メッセージを入れ、送信します。
 
 ![送信Webhook](../images/05b-teams-webhook-06.png)
 
 メッセージを送信すると返信があり、Web 画面に反映されます。
+
+![結果](../images/05-result.png)
+
+うまく画面表示されたら成功です。
+
+次へ: 
+
+- [chapter 5a: LINE Bot](chap5a_line_bot.md)
+- [chapter 6: おわりに](chap6_conclusion.md)

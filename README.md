@@ -9,7 +9,7 @@ LINE Bot または Teams 送信 Webhook の 2 種類のインターフェース�
 ### 作成できるアプリ
 簡易出退勤管理アプリです。
 
-LINE や Microsoft Teams といったチャットツールから勤怠報告メッセージを送信すると、名前とメッセージ、送信時刻を記録することができ、リアルタイムに Web 画面で確認することができます。
+LINE や Microsoft Teams といったチャットツールから勤怠報告メッセージを送信すると、名前とメッセージ、送信時刻をデータベースに記録し、それがリアルタイムに Web 画面に表示されます。
 
 
 
@@ -18,6 +18,8 @@ LINE や Microsoft Teams といったチャットツールから勤怠報告メ�
 - Azure Cosmos DB
 - Azure SignalR Service
 - Azure Static Web Apps (preview)
+
+![アーキテクチャ](images/00-architecture.png)
 
 ## 準備
 - Azure の有効なサブスクリプション
@@ -32,7 +34,6 @@ LINE や Microsoft Teams といったチャットツールから勤怠報告メ�
 - Git
 - GitHub アカウント
 - LINE アカウントもしくは Microsoft Teams（Webhook 機能が利用できること）
-※このあたりは空のVMで検証すること
 ※VS Code 拡張機能を使用せず、すべてコマンドで実行することも可能です。
 
 ## もくじ

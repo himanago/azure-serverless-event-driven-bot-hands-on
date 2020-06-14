@@ -160,4 +160,17 @@ Azure 側に LINE の情報を設定します。
 ## 動作確認
 Web 画面を開き、友だち登録した Bot にメッセージを送ってみましょう。
 
+![LINE](../images/05a-line-bot-01.png)
+
 画面に自分の名前と時刻、送信したメッセージが表示されれば成功です。
+
+![結果](../images/05-result.png)
+
+うまく画面表示されたら成功です。
+
+
+
+## 終わったら
+
+- [chapter 5b: Microsoft Teams の送信 Webhook](chap5b_teams_outgoing_webhook.md)
+- [chapter 6: おわりに](chap6_conclusion.md)

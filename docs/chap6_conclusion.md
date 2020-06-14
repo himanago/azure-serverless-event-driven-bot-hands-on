@@ -6,14 +6,16 @@
 
 このアプリのアーキテクチャを参考に、ぜひ便利なサービスを構築してみてください。
 
+![アーキテクチャ](../images/00-architecture.png)
+
 ## チャレンジ：機能追加
 
 今回のアプリに対しても、以下のような機能追加をしてみましょう。
 
 - Web 画面
-  - 月の選択をできるようにする
-  - 認証機能を付けてみる
+  - 出退勤記録のユーザーや月ごとに表示を切り替えられるようにする
+  - Azure AD で認証機能を付けてみる
 - Bot
-  - LINE Bot と Teams の ID を共有したい
+  - LINE Bot と Teams の ID を共有できるようにする（同じユーザーがインターフェースを使い分けられるようにする）
 - CI/CD
-  - Azure Functions も GitHub Actions で CI/CD されるようにする
+  - `functionApp` 配下の関数も GitHub Actions で CI/CD されるようにする
