@@ -1,11 +1,11 @@
 # chapter 2: SignalR Service の作成
 
 ## Azure SignalR Service とは
-Azure SignalR Service は、クライアントをリアルタイム更新する WebSocket のためのサービスです。
+Azure SignalR Service は、クライアントをリアルタイム更新するためのサービスです。
 
-WebSocket は、Web ページなどの更新をクライアント側の再取得操作に頼らずに、サーバー側のアクションを起点としてクライアント側の画面を更新できる技術です。
+SignalR Service を使うと、Web ページなどの更新をクライアント側の再取得操作に頼らずに、サーバー側のアクションを起点としてクライアント側の画面を更新できます。
 
-Azure Functions と組み合わせて使えば、簡単にサーバーレスでリアルタイムにクライアントに更新を通知できる機能を実現できます。
+Azure Functions と組み合わせて使えば、リアルタイムにクライアントに更新を通知できる機能をサーバーレスで手軽に実現できます。
 
 [Azure SignalR サービスとは | Microsoft Docs](https://docs.microsoft.com/ja-jp/azure/azure-signalr/signalr-overview)
 

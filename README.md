@@ -22,19 +22,19 @@ LINE や Microsoft Teams といったチャットツールから勤怠報告メ�
 ![アーキテクチャ](images/00-architecture.png)
 
 ## 準備
-- Azure の有効なサブスクリプション
-- VS Code Insiders
-  - 拡張機能「Azure Static Web Apps (Preview)」のインストール
-    - 2020/6/9 時点で Insiders のみで使用可能です。
-    - 関連する Azure 関連拡張機能もまとめてインストールされます。
-  - Git 関連
-  - Vetur
-- Azure Functions CLI
-- Node.js
-- Git
+### アカウント・サブスクリプション
+- Azure アカウントと有効なサブスクリプション
 - GitHub アカウント
-- LINE アカウントもしくは Microsoft Teams（Webhook 機能が利用できること）
-※VS Code 拡張機能を使用せず、すべてコマンドで実行することも可能です。
+- LINE アカウントもしくは Microsoft Teams（送信 Webhook の機能が利用できること）
+
+### インストール
+- Visual Studio Code (1.46.0 以上)
+  - 拡張機能として以下をインストール
+    - Azure Static Web Apps (Preview)
+    - Azure Functions
+    - Vetur
+- Node.js (8.11.0 以上)
+- Git
 
 ## もくじ
 - chapter 1: [Cosmos DB アカウントの作成とコンテナーの追加](docs/chap1_cosmos_db.md)
@@ -44,6 +44,12 @@ LINE や Microsoft Teams といったチャットツールから勤怠報告メ�
 - chapter 5a: [静的 Web サイトをリアルタイム更新するクライアントツールの開発（LINE Bot）](docs/chap5a_line_bot.md)
 - chapter 5b: [静的 Web サイトをリアルタイム更新するクライアントツールの開発（Microsoft Teams の送信 Webhook）](docs/chap5b_teams_outgoing_webhook.md)
 - chapter 6: [おわりに](docs/chap6_conclusion.md)
+
+
+## ご意見・お問合せ
+
+本リポジトリの [Issue](https://github.com/himanago/azure-serverless-event-driven-bot-hands-on/issues/new) または [Twitter (@himarin269)](https://twitter.com/himarin269) までお気軽にご連絡ください。
+
 
 
 © 2020 Takumasa Hirabayashi All rights reserved.  

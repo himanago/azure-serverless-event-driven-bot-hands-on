@@ -3,7 +3,7 @@
 ## Cosmos DB の　Change Feed と SignalR をつなぐ
 Cosmos DB には、データの変更を順番に記録・通知してくれる Change Feed と呼ばれる機能をサポートしています。
 
-この変更を起点に Azure Functions を起動する「Cosmos DB トリガー」と、SignalR Service による WebSocket を組み合わせることで、DB の変更をリアルタイムに Web ページに反映・表示させることができます。
+この変更を起点に Azure Functions を起動する「Cosmos DB トリガー」と、SignalR Service を組み合わせることで、DB の変更をリアルタイムに Web ページに反映・表示させることができます。
 
 [Azure Cosmos DB の変更フィード | Microsoft Docs](https://docs.microsoft.com/ja-jp/azure/cosmos-db/change-feed)
 
@@ -33,7 +33,7 @@ Cosmos DB には、データの変更を順番に記録・通知してくれる 
 ### 準備
 今回作成するアプリのソースコード（フロントエンド、バックエンドとも）を格納するフォルダを任意の場所に作成しておきます（ここでは `time-card-static-web` というフォルダを作成しました）。
 
-その中に、関数を作成するためのフォルダを用意し（ここでは `functionApp`）、それを VS Code（Insiders）で開きます。
+その中に、関数を作成するためのフォルダを用意し（ここでは `functionApp`）、それを VS Code で開きます。
 
 ### プロジェクト作成
 左メニューの Azure アイコンから拡張機能のメニューを開き、「FUNCTIONS」の「Create New Project...」をクリックします。
@@ -45,6 +45,7 @@ functionApp を選択。
 ![プロジェクト作成](../images/03-create-project-02.png)
 
 言語は JavaScript を選択。
+
 ![プロジェクト作成](../images/03-create-project-03.png)
 
 「Azure Cosmos DB trigger」を選択。

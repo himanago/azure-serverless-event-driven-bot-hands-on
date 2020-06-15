@@ -11,7 +11,7 @@ Angular, React や Vue.js などで開発した静的な Web サイトを簡単�
 
 ## 準備
 ### Vue.js プロジェクトの作成
-今回のアプリ開発用のフォルダ（ここでは `time-card-static-web`。functionApp の親）を VS Code（Insiders）で開きます。
+今回のアプリ開発用のフォルダ（ここでは `time-card-static-web`。functionApp の親）を VS Code で開きます。
 
 #### Vue CLI の導入
 VS Code でターミナルを開いて以下のコマンドを実行し、Vue CLI の確認をします。
@@ -19,7 +19,7 @@ VS Code でターミナルを開いて以下のコマンドを実行し、Vue CL
 ```bash
 vue --version
 ```
-@vue/cli 4.4.1 など表示されれば OK です。
+@vue/cli 4.4.4 など表示されれば OK です。
 
 コマンドの実行に失敗した場合は以下のコマンドで Vue CLI をインストールします。
 
@@ -29,17 +29,13 @@ npm install -g @vue/cli
 
 #### Vue.js プロジェクトの作成
 
-以下のコマンドを実行し、
+以下のコマンドを実行します。
 
 ```bash
 vue create client
 ```
 
-```bash
-? Generate project in current directory? (Y/n) Y
-```
-
-`default (babel, eslint)` のまま Enter を押します。
+次のように聞かれるので、`default (babel, eslint)` のまま Enter を押します。
 
 ```bash
 ? Please pick a preset: (Use arrow keys)
@@ -79,18 +75,18 @@ Default のまま Enter。
   Configure (advanced)
 ```
 
-完了後、再度
+完了後、再度以下を実行します。
 
 ```bash
 npm run serve
 ```
 
-を実行し、http://localhost:8080/ を表示すると、Vuetify の初期画面に変わります。
+http://localhost:8080/ を表示すると、Vuetify の初期画面に変わります。
 
 ![Vuetify導入後](../images/04-initial-vuetify-app.png)
 
-### タイムカード画面の開発
-#### フロントエンド
+## タイムカード画面の開発
+### フロントエンド
 
 SignaR 用のライブラリを導入します。
 
@@ -172,10 +168,9 @@ src/components/HelloWorld.vue を以下のコードで置き換えます。
     }
   }
 </script>
-
 ```
 
-#### バックエンド
+### バックエンド
 
 Static Web Apps の拡張機能から、バックエンド関数を作成します。
 
@@ -207,7 +202,7 @@ api フォルダ内に、関数の雛形が作成されます。
 ![関数の作成](../images/04-add-api-04.png)
 
 
-##### getTimecardData
+#### getTimecardData
 `function.json` のコードを以下のものに置き換えます。
 
 ```json
@@ -257,7 +252,7 @@ module.exports = async function (context, req) {
 入力バインディングの設定で `context.bindings.documents` に当月分の全ドキュメントが入ってきています（`bindings` の `route` で設定したとおりに呼び出し URL で日付の範囲のパラメータを受け取り、それを使って `sqlQuery` を実行した結果です）。
 
 
-##### negotiate
+#### negotiate
 
 `function.json` のコードを以下のものに置き換えます。
 
@@ -295,7 +290,7 @@ module.exports = async function (context, req, connectionInfo) {
 
 こちらも、`sample.dat` は不要なので削除します。
 
-### GitHub へのリポジトリ作成とプロジェクトの Push
+## GitHub へのリポジトリ作成とプロジェクトの Push
 
 ブラウザから GitHub にサインインし、空のリポジトリを[新規作成](https://github.com/new)します。
 
@@ -307,6 +302,10 @@ Public / Private いずれでも OK です。
 
 ![Git操作](../images/04-copy-url.png)
 
+
+VS Code に戻り、Git のメニューから「リポジトリを初期化する」をクリックします。
+
+![Git操作](../images/04-init-repogitory.png)
 
 Ctrl + Shift + p または F1 キーでコマンドパレットを開き、`git add remote` などと入力しリモート追加をします。
 
@@ -339,12 +338,13 @@ Ctrl + Shift + p または F1 キーでコマンドパレットを開き、`git 
 これで GitHub にソースコードが登録されました。
 
 
-### VS Code から
-「Azure Static Web Apps (Preview)」の拡張機能をインストールした VS Code（Insiders）からプロジェクトを作成します。
+## VS Code から Azure Static Web Apps のリソースを作成する
+
+「Azure Static Web Apps (Preview)」の拡張機能をインストールした VS Code からプロジェクトを作成します。
 
 ![拡張機能から新規作成](../images/04-vscode-new-01.png)
 
-Azure にサインインしていなければ、サインインを促されるので、「Sign in to Azure...」を選択します。
+Azure にサインインしていなければサインインを促されるので、「Sign in to Azure...」を選択します。
 
 ![Azureにサインイン](../images/04-vscode-new-02.png)
 
@@ -362,7 +362,7 @@ Continue をクリック。
 
 ![GitHubにサインイン](../images/04-vscode-new-05.png)
 
-Authorize github をクリック。
+GitHub に サインインし、Authorize github をクリック。
 
 ![GitHubにサインイン](../images/04-vscode-new-06.png)
 
@@ -394,7 +394,7 @@ Web サイトのフロントエンドのフォルダ（`client`）を指定。
 
 設定が完了し、GitHub から自動ビルド・デプロイが開始されます。
 
-## 環境変数の設定
+## アプリケーション設定
 
 作成されたリソースが、同名のリソースグループの中に作られているので開きます。
 
@@ -437,7 +437,7 @@ Web ページを開いた状態で、Cosmos DB にデータを入れていきま
 ![表示確認](../images/04-test-02.png)
 
 
-画面に登録したデータが更新なしで表示され（WebSocket による自動更新）、またその後更新しても表示されていれば（初期表示時のデータ取得）成功です。
+画面に登録したデータが更新なしで表示され（SignalR による自動更新）、またその後更新しても表示されていれば（初期表示時のデータ取得）成功です。
 
 いくつかデータを追加登録してみましょう。
 
