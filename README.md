@@ -1,9 +1,14 @@
 # Azure サーバーレステクノロジー体験ハンズオン ～イベント駆動でつなげよう～
 
 ## 概要
-LINE Bot または Teams 送信 Webhook の 2 種類のインターフェースからのアクションでリアルタイムに更新される Web ページを、Azure のサーバーレステクノロジーの組み合わせで構築するハンズオンです。
+本リポジトリは、de:code 2020 のパーソナルスポンサーとして提供したハンズオン資料です。
 
-2 種のインターフェースはどちらかだけでも実践可能です。
+LINE Bot または Teams 送信 Webhook の 2 種類のインターフェースからのアクションでリアルタイムに更新される Web ページを、Azure のサーバーレステクノロジーの組み合わせで構築します（2 種のインターフェースはどちらかだけでも実践可能です）。
+
+LINE or Teams → Functions → Cosmos DB → Functions → SignalR Service → Static Web Apps リアルタイム更新のしくみを VS Code とその拡張機能を利用して開発します（言語は JavaScript です）。
+
+## 本ハンズオンの狙い
+Azure のサーバーレステクノロジーの利点と、それらがイベント駆動でつながっていく体験していただけます。
 
 
 ### 作成できるアプリ
@@ -46,9 +51,14 @@ LINE や Microsoft Teams といったチャットツールから勤怠報告メ�
 - chapter 6: [おわりに](docs/chap6_conclusion.md)
 
 
+## 完成版コード
+本リポジトリの [src](https://github.com/himanago/azure-serverless-event-driven-bot-hands-on/tree/master/src) フォルダ内を参考にしてください。
+
+
 ## ご意見・お問合せ
 
 本リポジトリの [Issue](https://github.com/himanago/azure-serverless-event-driven-bot-hands-on/issues/new) または [Twitter (@himarin269)](https://twitter.com/himarin269) までお気軽にご連絡ください。
+
 
 
 

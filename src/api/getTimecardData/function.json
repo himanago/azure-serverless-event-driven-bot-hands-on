@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route":"getTimecardData/{begin}/{end}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "name": "documents",
+      "type": "cosmosDB",
+      "databaseName": "time-card-db",
+      "collectionName": "timecard",
+      "sqlQuery": "SELECT * from c WHERE c._ts >= StringToNumber({begin}) AND c._ts <= StringToNumber({end})",
+      "connectionStringSetting": "CosmosDBConnectionString",
+      "direction": "in"
+    }
+  ]
+}

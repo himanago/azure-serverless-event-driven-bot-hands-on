@@ -1,0 +1,21 @@
+{
+  "bindings": [
+    {
+      "type": "cosmosDBTrigger",
+      "name": "documents",
+      "direction": "in",
+      "leaseCollectionName": "leases",
+      "connectionStringSetting": "CosmosDBConnectionString",
+      "databaseName": "time-card-db",
+      "collectionName": "timecard",
+      "createLeaseCollectionIfNotExists": true
+    },
+    {
+      "type": "signalR",
+      "name": "signalRMessages",
+      "hubName": "timecard",
+      "connectionStringSetting": "SignalRConnectionString",
+      "direction": "out"
+    }
+  ]
+}
